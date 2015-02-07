@@ -1,0 +1,20 @@
+for (int i = 0; i < myfile.headsecond.biHeight; i +=1)
+	{
+			for (int j = 1; j < myfile.headsecond.biWidth; j += 1)
+			{
+				myfile.image[i][j].r ^= myfile.image[i][0].r;
+				myfile.image[i][j].b ^= myfile.image[i][0].b;
+				myfile.image[i][j].g ^= myfile.image[i][0].g;
+			}
+
+		 }
+	for (int i = 1; i < myfile.headsecond.biHeight; i +=1)
+	{
+			for (int j = 0; j < myfile.headsecond.biWidth; j += 1)
+			{
+				myfile.image[i][j].r ^= myfile.image[0][j].r;
+				myfile.image[i][j].b ^= myfile.image[0][j].b;
+				myfile.image[i][j].g ^= myfile.image[0][j].g;
+			}
+
+	}

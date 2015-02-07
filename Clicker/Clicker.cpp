@@ -8,7 +8,7 @@ bool KeyIsPressed(unsigned char k) {
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE P, LPSTR CMD, int nShowCmd) {
 
-	HWND target = (HWND)0x00120B02;
+	HWND target = (HWND)0x0004068E;
 	//	pt is for the mouse position, wrect is for the client information. The mouse coords to be sent to the window
 	//		must be relative to the top-left corner of the client area, so I have to include that too.
 	POINT pt;
