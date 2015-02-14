@@ -22,16 +22,16 @@ struct Wave
     unsigned short bitsPerSample;	//бит в семпле/глубина звука
     char subchunk2Id[6];			//"data"
     unsigned long subchunk2Size;	//кол-во байт в области данных
-	int **data;
+	
 	int n;
-    vector < _int16 > samples;
+    //vector < _int16 > samples;
+	_int16 * samples;
 	void read(std::string str)
 	{
 
 		FILE *f;
 		f = fopen(str.c_str(), "rb");
         
-        //cout<<"eee";
 		fread(&this->chunkId, sizeof(char), 4, f);
         fread(&this->chunkSize, sizeof(unsigned long), 1, f);
 		fread(&this->format, sizeof(char), 4, f);
@@ -47,26 +47,17 @@ struct Wave
         fread(&this->subchunk2Size, sizeof(unsigned long), 1, f);
 
         this->n = (int)(this->subchunk2Size/this->numChannels*8/this->bitsPerSample);
-        //this->data = new int *[this->numChannels];
-        //for (int i = 0; i < this->numChannels; i++)
-          //  this->data[i] = new int[n];
-        //cout<<n;
-        samples.resize(n);
+
+		samples = new __int16[n];
         for (int i = 0; i < n; i++)
 		{
-            /*for (int j = 0; j < this->numChannels; j++)
-			{
-				short tmp = 0;
-				fread(&tmp, 1 , 2, f);
-				
-				data[j][i] = tmp;
-            }*/
+
             _int16 tmp = 0;
             fread(&tmp, 2 , 1, f);
-            samples[i] = tmp;//(this->data[0][i] + this->data[1][i])/2;
-            //cout << abs(samples[i]) <<  "\n";
+            samples[i] = tmp;
+
         }
-        //cout << "--------------------------" <<  "\n";
+
 		fclose(f);
 	}
 	void write(std::string str)
@@ -91,27 +82,13 @@ struct Wave
         fwrite(&this->subchunk2Size, sizeof(unsigned long), 1, f);
 
         this->n = (int)(this->subchunk2Size/this->numChannels*8/this->bitsPerSample);
-        //this->data = new int *[this->numChannels];
-        //for (int i = 0; i < this->numChannels; i++)
-          //  this->data[i] = new int[n];
-        //cout<<n;
-        //samples.resize(n);
-		
+
         for (int i = 0; i < n; i++)
 		{
-            /*for (int j = 0; j < this->numChannels; j++)
-			{
-				short tmp = 0;
-				fread(&tmp, 1 , 2, f);
-				
-				data[j][i] = tmp;
-            }*/
             _int16 tmp = samples[i];
             fwrite(&tmp, 2 , 1, f);
-            //samples[i] = tmp;//(this->data[0][i] + this->data[1][i])/2;
-            //cout << abs(samples[i]) <<  "\n";
         }
-        //cout << "--------------------------" <<  "\n";
+
 		fclose(f);
 	}
 };

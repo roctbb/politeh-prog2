@@ -1,4 +1,4 @@
-﻿Построение начато 20.01.2015 22:27:29.
+﻿Построение начато 15.02.2015 0:02:38.
      1>Проект "C:\Prog\politeh-prog2\SoundReverse\SoundReverse.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SoundReverse.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt SoundReverse.cpp
@@ -11,4 +11,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:01.17
+Затраченное время: 00:00:03.25
