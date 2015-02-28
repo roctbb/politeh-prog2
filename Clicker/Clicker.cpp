@@ -15,12 +15,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE P, LPSTR CMD, int nShowCmd) {
 	RECT wrect;
 
 	while (true) {
-
-		//	ctrl + A to make the front-most window the targetted window
-		if (KeyIsPressed(VK_CONTROL) && KeyIsPressed('A')) {
-			target = (HWND)0x00120B02;
-		}
-
 		//	ctrl + esc to quit
 		if (KeyIsPressed(VK_CONTROL) && KeyIsPressed(VK_ESCAPE)) {
 			break;
