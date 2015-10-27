@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    ball.cpp
+    ball.cpp \
+    hikkaball.cpp
 
 HEADERS  += mainwindow.h \
-    ball.h
+    ball.h \
+    hikkaball.h
 
 FORMS    += mainwindow.ui
